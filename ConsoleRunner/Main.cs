@@ -57,7 +57,8 @@ static class Program
 
     private static void BuildPlan()
     {
-        foreach (var item in Planner.CreatePlan(Repository.GetAll().ToArray()))
+        var plan = Planner.CreatePlan(Repository.GetAll().ToArray());
+        foreach (var item in plan)
         Console.WriteLine(item);
     }
 
