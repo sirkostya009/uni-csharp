@@ -11,6 +11,7 @@ static class Program
 
     public static void Main(string[] args)
     {
+        Console.WriteLine(Environment.CurrentDirectory);
         do
         {
             var command = Console.ReadLine()[0];
@@ -44,15 +45,31 @@ static class Program
         var workItem = new WorkItem(
             id: Guid.Empty,
             creationDate: DateTime.Now,
-            dueDate: DateTime.Parse(Console.ReadLine()),
-            complexity: Enum.Parse<Complexity>(Console.ReadLine()),
-            priority: Enum.Parse<Priority>(Console.ReadLine()),
-            title: Console.ReadLine(),
-            description: Console.ReadLine(),
+            dueDate: ReadDate("Enter DueDate: "),
+            complexity: ReadEnum<Complexity>("Enter Complexity: "),
+            priority: ReadEnum<Priority>("Enter Priority: "),
+            title: ReadString("Enter Title: "),
+            description: ReadString("Enter Description: "),
             isCompleted: false
         );
         Repository.Add(workItem);
         Repository.SaveChanges();
+    }
+
+    private static DateTime ReadDate(string message) {
+        Console.Write(message);
+        return DateTime.Parse(Console.ReadLine());
+    }
+
+    private static T ReadEnum<T>(string message) where T : Enum
+    {
+        Console.Write(message);
+        return (T)Enum.Parse(typeof(T), Console.ReadLine());
+    }
+
+    private static string ReadString(string message) { 
+        Console.Write(message);
+        return Console.ReadLine();
     }
 
     private static void BuildPlan()

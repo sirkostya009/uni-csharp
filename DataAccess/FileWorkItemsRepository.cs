@@ -6,22 +6,16 @@ namespace DataAccess;
 
 public class FileWorkItemsRepository : IWorkItemsRepository
 {
-    private const string dbFilePath = "~/Projects/uni-csharp/work-items.json";
+    private const string dbFilePath = "../../../../work-items.json";
     private Dictionary<Guid, WorkItem> workItems;
 
     public FileWorkItemsRepository()
     {
-        string json;
-        try
-        {
-            json = File.ReadAllText(dbFilePath);
-        }
-        catch (IOException)
-        {
-            json = "[]";
-            File.Create(dbFilePath);
-            File.WriteAllText(dbFilePath, json);
-        }
+        var directory = Directory.GetCurrentDirectory();
+
+        Path.Combine(directory, dbFilePath);
+
+        var json = File.ReadAllText(dbFilePath);
 
         var items = JsonConvert.DeserializeObject<List<WorkItem>>(json);
 
