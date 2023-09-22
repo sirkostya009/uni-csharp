@@ -1,0 +1,17 @@
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/bin/Debug/net6.0/DataAccess.deps.json
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/bin/Debug/net6.0/DataAccess.dll
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/bin/Debug/net6.0/DataAccess.pdb
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/bin/Debug/net6.0/DataAccess.Abstractions.dll
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/bin/Debug/net6.0/Domain.Models.dll
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/bin/Debug/net6.0/DataAccess.Abstractions.pdb
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/bin/Debug/net6.0/Domain.Models.pdb
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/obj/Debug/net6.0/DataAccess.csproj.AssemblyReference.cache
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/obj/Debug/net6.0/DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/obj/Debug/net6.0/DataAccess.AssemblyInfoInputs.cache
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/obj/Debug/net6.0/DataAccess.AssemblyInfo.cs
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/obj/Debug/net6.0/DataAccess.csproj.CoreCompileInputs.cache
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/obj/Debug/net6.0/DataAccess.csproj.CopyComplete
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/obj/Debug/net6.0/DataAccess.dll
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/obj/Debug/net6.0/refint/DataAccess.dll
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/obj/Debug/net6.0/DataAccess.pdb
+/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/obj/Debug/net6.0/ref/DataAccess.dll

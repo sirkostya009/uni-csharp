@@ -1,0 +1,15 @@
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/bin/Release/net6.0/Domain.Logic.deps.json
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/bin/Release/net6.0/Domain.Logic.dll
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/bin/Release/net6.0/Domain.Logic.pdb
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/bin/Release/net6.0/Domain.Models.dll
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/bin/Release/net6.0/Domain.Models.pdb
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/obj/Release/net6.0/Domain.Logic.csproj.AssemblyReference.cache
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/obj/Release/net6.0/Domain.Logic.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/obj/Release/net6.0/Domain.Logic.AssemblyInfoInputs.cache
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/obj/Release/net6.0/Domain.Logic.AssemblyInfo.cs
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/obj/Release/net6.0/Domain.Logic.csproj.CoreCompileInputs.cache
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/obj/Release/net6.0/Domain.Logic.csproj.CopyComplete
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/obj/Release/net6.0/Domain.Logic.dll
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/obj/Release/net6.0/refint/Domain.Logic.dll
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/obj/Release/net6.0/Domain.Logic.pdb
+/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Logic/obj/Release/net6.0/ref/Domain.Logic.dll

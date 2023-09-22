@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "DataAccess.Abstractions/1.0.0": {
+        "dependencies": {
+          "Domain.Models": "1.0.0"
+        },
+        "runtime": {
+          "DataAccess.Abstractions.dll": {}
+        }
+      },
+      "Domain.Models/1.0.0": {
+        "runtime": {
+          "Domain.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DataAccess.Abstractions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Domain.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

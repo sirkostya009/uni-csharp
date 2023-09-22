@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "lD830R6GI9wGtyOTA24MKfx9Z4+8TFb+ApuddcE1NHBnh12+3IshuJTztOtMaSBaiOKCBYpSoRzdLjQGjbF1fQ==",
+  "success": true,
+  "projectFilePath": "/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess/DataAccess.csproj",
+  "expectedPackageFiles": [
+    "/Users/kostiantyntovstyk/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

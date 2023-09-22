@@ -1,37 +1,74 @@
 ﻿using Domain.Logic;
 using Domain.Models;
 using Domain.Models.Enums;
+using DataAccess.Abstractions;
+using DataAccess;
 
-internal static class Program
+static class Program
 {
+    private static SimpleTaskPlanner Planner = new SimpleTaskPlanner();
+    private static IWorkItemsRepository Repository = new FileWorkItemsRepository();
+
     public static void Main(string[] args)
     {
-        var planner = new SimpleTaskPlanner();
-        Console.Write("Enter n: ");
-        int n = Convert.ToInt32(Console.ReadLine());
+        do
+        {
+            var command = Console.ReadLine()[0];
 
-        var enteredItems = from _ in Enumerable.Range(0, n)
-                           select readFromConsole();
+            switch (command)
+            {
+                case 'A':
+                    AddWorkItem();
+                    break;
+                case 'B':
+                    BuildPlan();
+                    break;
+                case 'M':
+                    MarkCompleted(Guid.Parse(Console.ReadLine()));
+                    break;
+                case 'R':
+                    RemoveItem(Guid.Parse(Console.ReadLine()));
+                    break;
+                case 'Q':
+                    Environment.Exit(0);
+                    break;
+                default:
+                    break;
+            }
+        }
+        while (true);
+    }
 
-        foreach (var item in planner.CreatePlan(enteredItems.ToArray()))
+    private static void AddWorkItem()
+    {
+        var workItem = new WorkItem(
+            id: Guid.Empty,
+            creationDate: DateTime.Now,
+            dueDate: DateTime.Parse(Console.ReadLine()),
+            complexity: Enum.Parse<Complexity>(Console.ReadLine()),
+            priority: Enum.Parse<Priority>(Console.ReadLine()),
+            title: Console.ReadLine(),
+            description: Console.ReadLine(),
+            isCompleted: false
+        );
+        Repository.Add(workItem);
+        Repository.SaveChanges();
+    }
+
+    private static void BuildPlan()
+    {
+        foreach (var item in Planner.CreatePlan(Repository.GetAll().ToArray()))
         Console.WriteLine(item);
     }
 
-    private static WorkItem readFromConsole()
+    private static void MarkCompleted(Guid guid)
     {
-        Console.WriteLine("Please enter values for a new WorkItem instance.");
-        var result = new WorkItem();
-        result.CreationDate = DateTime.Now;
-        Console.Write("Enter DueDate: ");
-        result.DueDate = DateTime.Parse(Console.ReadLine());
-        Console.Write("Enter Complexity: ");
-        result.Complexity = Enum.Parse<Complexity>(Console.ReadLine());
-        Console.Write("Enter Priority: ");
-        result.Priority = Enum.Parse<Priority>(Console.ReadLine());
-        Console.Write("Enter Title: ");
-        result.Title = Console.ReadLine();
-        Console.Write("Enter Description: ");
-        result.Description = Console.ReadLine();
-        return result;
+        Repository.Get(guid).IsCompleted = true;
+        Repository.SaveChanges();
+    }
+
+    private static void RemoveItem(Guid guid)
+    {
+        Repository.Remove(Repository.Get(guid));
     }
 }

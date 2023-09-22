@@ -10,6 +10,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Domain.Logic\Domain.Logic.csproj" />
     <ProjectReference Include="..\Domain.Models\Domain.Models.csproj" />
+    <ProjectReference Include="..\DataAccess.Abstractions\DataAccess.Abstractions.csproj" />
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,89 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "Domain.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Domain.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Domain.Models/1.0.0": {
+      "type": "project",
+      "path": "../Domain.Models/Domain.Models.csproj",
+      "msbuildProject": "../Domain.Models/Domain.Models.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "Domain.Models >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/kostiantyntovstyk/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess.Abstractions/DataAccess.Abstractions.csproj",
+      "projectName": "DataAccess.Abstractions",
+      "projectPath": "/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess.Abstractions/DataAccess.Abstractions.csproj",
+      "packagesPath": "/Users/kostiantyntovstyk/.nuget/packages/",
+      "outputPath": "/Users/kostiantyntovstyk/Projects/uni-csharp/DataAccess.Abstractions/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/kostiantyntovstyk/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Models/Domain.Models.csproj": {
+              "projectPath": "/Users/kostiantyntovstyk/Projects/uni-csharp/Domain.Models/Domain.Models.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.308/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
