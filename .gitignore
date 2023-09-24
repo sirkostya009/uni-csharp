@@ -1,3 +1,4 @@
 bin/
 obj/
 .vs
+work-items.json

@@ -7,7 +7,7 @@ namespace DataAccess;
 public class FileWorkItemsRepository : IWorkItemsRepository
 {
     private const string dbFilePath = "../../../../work-items.json";
-    private Dictionary<Guid, WorkItem> workItems;
+    private Dictionary<Guid?, WorkItem> workItems;
 
     public FileWorkItemsRepository()
     {
@@ -24,10 +24,11 @@ public class FileWorkItemsRepository : IWorkItemsRepository
 
     public Guid Add(WorkItem item)
     {
+        var guid = Guid.NewGuid();
         var copy = item.Clone();
-        copy.Id = Guid.NewGuid();
+        copy.Id = guid;
         workItems[item.Id] = copy;
-        return copy.Id;
+        return guid;
     }
 
     public WorkItem Get(Guid guid)
@@ -47,7 +48,7 @@ public class FileWorkItemsRepository : IWorkItemsRepository
 
     public bool Update(WorkItem item)
     {
-        if (item.Id != null)
+        if (item.Id.HasValue)
         {
             workItems[item.Id] = item;
             return true;

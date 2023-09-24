@@ -6,15 +6,16 @@ using DataAccess;
 
 static class Program
 {
-    private static SimpleTaskPlanner Planner = new SimpleTaskPlanner();
     private static IWorkItemsRepository Repository = new FileWorkItemsRepository();
+    private static SimpleTaskPlanner Planner = new SimpleTaskPlanner(Repository);
 
     public static void Main(string[] args)
     {
         Console.WriteLine(Environment.CurrentDirectory);
+        Console.WriteLine(new WorkItem().Id);
         do
         {
-            var command = Console.ReadLine()[0];
+            var command = Console.ReadLine().ToUpper()[0];
 
             switch (command)
             {
@@ -74,7 +75,7 @@ static class Program
 
     private static void BuildPlan()
     {
-        var plan = Planner.CreatePlan(Repository.GetAll().ToArray());
+        var plan = Planner.CreatePlan();
         foreach (var item in plan)
         Console.WriteLine(item);
     }

@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		work-items.json = work-items.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Logic.Tests", "Domain.Logic.Tests\Domain.Logic.Tests.csproj", "{3D1CD7CD-3DB3-4043-AF86-3D51D4E733DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{20412000-CF14-4D02-9040-07F867777020}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20412000-CF14-4D02-9040-07F867777020}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20412000-CF14-4D02-9040-07F867777020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1CD7CD-3DB3-4043-AF86-3D51D4E733DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1CD7CD-3DB3-4043-AF86-3D51D4E733DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1CD7CD-3DB3-4043-AF86-3D51D4E733DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1CD7CD-3DB3-4043-AF86-3D51D4E733DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

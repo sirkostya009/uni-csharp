@@ -4,7 +4,7 @@ namespace Domain.Models
 {
     public class WorkItem
     {
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime DueDate { get; set; }
         public Complexity Complexity { get; set; }
@@ -15,7 +15,7 @@ namespace Domain.Models
 
         public WorkItem() { }
 
-        public WorkItem(Guid id, DateTime creationDate, DateTime dueDate, Complexity complexity, Priority priority, string title, string description, bool isCompleted)
+        public WorkItem(Guid? id, DateTime creationDate, DateTime dueDate, Complexity complexity, Priority priority, string title, string description, bool isCompleted)
         {
             Id = id;
             CreationDate = creationDate;
