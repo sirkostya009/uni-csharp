@@ -5,7 +5,7 @@ namespace Domain.Logic
 {
     public class SimpleTaskPlanner
     {
-        private IWorkItemsRepository Repository;
+        private readonly IWorkItemsRepository Repository;
 
         public SimpleTaskPlanner(IWorkItemsRepository repository)
         {

@@ -19,8 +19,8 @@ public class SimpleTaskPlannerTests
     [Fact]
     public void IsProperlySorted()
     {
-        var alphaItem = WorkItem(Priority.None, DateTime.Now.AddDays(1), "Alpha");
-        var betaItem = WorkItem(Priority.Urgent, DateTime.Now, "Beta");
+        var alphaItem = WorkItem(DateTime.Now.AddDays(1), Priority.None, "Alpha");
+        var betaItem = WorkItem(DateTime.Now, Priority.Urgent, "Beta");
 
         var planner = CreatePlanner(alphaItem, betaItem);
 
@@ -32,8 +32,8 @@ public class SimpleTaskPlannerTests
     [Fact]
     public void AreCompletedAbsent()
     {
-        var nonCompleted = WorkItem(Priority.None, DateTime.Now, "Alpha");
-        var completed = WorkItem(Priority.High, DateTime.Now, "Beta", isCompleted: true);
+        var nonCompleted = WorkItem(DateTime.Now, Priority.None, "Alpha");
+        var completed = WorkItem(DateTime.Now, Priority.High, "Beta", isCompleted: true);
 
         var planner = CreatePlanner(nonCompleted, completed);
 
@@ -42,15 +42,16 @@ public class SimpleTaskPlannerTests
         Assert.Equal(new WorkItem[] { nonCompleted }, result);
     }
 
-    private WorkItem WorkItem(Priority priority, DateTime dueDate, string title, bool isCompleted = false)
-    {
-        var workItem = new WorkItem();
-        workItem.Priority = priority;
-        workItem.DueDate = dueDate;
-        workItem.Title = title;
-        workItem.IsCompleted = isCompleted;
-        return workItem;
-    }
+    private WorkItem WorkItem(DateTime dueDate, Priority priority, string title, bool isCompleted = false) => new WorkItem(
+        id: null,
+        creationDate: DateTime.Now,
+        dueDate,
+        Complexity.None,
+        priority,
+        title,
+        "",
+        isCompleted
+    );
 
     private SimpleTaskPlanner CreatePlanner(params WorkItem[] items)
     {

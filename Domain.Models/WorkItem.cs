@@ -39,5 +39,20 @@ namespace Domain.Models
             Description,
             IsCompleted
         );
+
+        public static WorkItem Of(DateTime dueDate,
+                                  Complexity complexity,
+                                  Priority priority,
+                                  string title,
+                                  string description) => new WorkItem(
+            id: null,
+            creationDate: DateTime.Now,
+            dueDate,
+            complexity,
+            priority,
+            title,
+            description,
+            isCompleted: false
+        );
     }
 }

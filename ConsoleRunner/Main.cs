@@ -1,93 +1,75 @@
 ﻿using Domain.Logic;
 using Domain.Models;
 using Domain.Models.Enums;
-using DataAccess.Abstractions;
 using DataAccess;
 
-static class Program
+var Repository = new FileWorkItemsRepository();
+var Planner = new SimpleTaskPlanner(Repository);
+
+while (true)
 {
-    private static IWorkItemsRepository Repository = new FileWorkItemsRepository();
-    private static SimpleTaskPlanner Planner = new SimpleTaskPlanner(Repository);
+    var command = ReadString("Enter command: ").ToUpper()[0];
 
-    public static void Main(string[] args)
+    switch (command)
     {
-        Console.WriteLine(Environment.CurrentDirectory);
-        Console.WriteLine(new WorkItem().Id);
-        do
-        {
-            var command = Console.ReadLine().ToUpper()[0];
-
-            switch (command)
-            {
-                case 'A':
-                    AddWorkItem();
-                    break;
-                case 'B':
-                    BuildPlan();
-                    break;
-                case 'M':
-                    MarkCompleted(Guid.Parse(Console.ReadLine()));
-                    break;
-                case 'R':
-                    RemoveItem(Guid.Parse(Console.ReadLine()));
-                    break;
-                case 'Q':
-                    Environment.Exit(0);
-                    break;
-                default:
-                    break;
-            }
-        }
-        while (true);
+        case 'A':
+            AddWorkItem();
+            break;
+        case 'B':
+            BuildPlan();
+            break;
+        case 'M':
+            MarkCompleted(ReadGuid());
+            break;
+        case 'R':
+            RemoveItem(ReadGuid());
+            break;
+        case 'Q':
+            Environment.Exit(0);
+            break;
+        default:
+            break;
     }
+}
 
-    private static void AddWorkItem()
-    {
-        var workItem = new WorkItem(
-            id: Guid.Empty,
-            creationDate: DateTime.Now,
-            dueDate: ReadDate("Enter DueDate: "),
-            complexity: ReadEnum<Complexity>("Enter Complexity: "),
-            priority: ReadEnum<Priority>("Enter Priority: "),
-            title: ReadString("Enter Title: "),
-            description: ReadString("Enter Description: "),
-            isCompleted: false
-        );
-        Repository.Add(workItem);
-        Repository.SaveChanges();
-    }
+void AddWorkItem()
+{
+    var workItem = WorkItem.Of(
+        dueDate:     ReadDate("Enter DueDate: "),
+        complexity:  ReadEnum<Complexity>("Enter Complexity: "),
+        priority:    ReadEnum<Priority>("Enter Priority: "),
+        title:       ReadString("Enter Title: "),
+        description: ReadString("Enter Description: ")
+    );
+    Repository.Add(workItem);
+    Repository.SaveChanges();
+}
 
-    private static DateTime ReadDate(string message) {
-        Console.Write(message);
-        return DateTime.Parse(Console.ReadLine());
-    }
+DateTime ReadDate(string message) => DateTime.Parse(ReadString(message));
 
-    private static T ReadEnum<T>(string message) where T : Enum
-    {
-        Console.Write(message);
-        return (T)Enum.Parse(typeof(T), Console.ReadLine());
-    }
+T ReadEnum<T>(string message) where T : Enum => (T)Enum.Parse(typeof(T), ReadString(message));
 
-    private static string ReadString(string message) { 
-        Console.Write(message);
-        return Console.ReadLine();
-    }
+Guid ReadGuid() => Guid.Parse(ReadString("Enter guid: "));
 
-    private static void BuildPlan()
-    {
-        var plan = Planner.CreatePlan();
-        foreach (var item in plan)
-        Console.WriteLine(item);
-    }
+string ReadString(string message)
+{
+    Console.Write(message);
+    return Console.ReadLine();
+}
 
-    private static void MarkCompleted(Guid guid)
-    {
-        Repository.Get(guid).IsCompleted = true;
-        Repository.SaveChanges();
-    }
+void BuildPlan()
+{
+    foreach (var item in Planner.CreatePlan())
+    Console.WriteLine(item);
+}
 
-    private static void RemoveItem(Guid guid)
-    {
-        Repository.Remove(Repository.Get(guid));
-    }
+void MarkCompleted(Guid guid)
+{
+    Repository.Get(guid).IsCompleted = true;
+    Repository.SaveChanges();
+}
+
+void RemoveItem(Guid guid)
+{
+    Repository.Remove(Repository.Get(guid));
 }

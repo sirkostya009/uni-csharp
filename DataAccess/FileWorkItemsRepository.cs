@@ -13,8 +13,6 @@ public class FileWorkItemsRepository : IWorkItemsRepository
     {
         var directory = Directory.GetCurrentDirectory();
 
-        Path.Combine(directory, dbFilePath);
-
         var json = File.ReadAllText(dbFilePath);
 
         var items = JsonConvert.DeserializeObject<List<WorkItem>>(json);
@@ -27,24 +25,15 @@ public class FileWorkItemsRepository : IWorkItemsRepository
         var guid = Guid.NewGuid();
         var copy = item.Clone();
         copy.Id = guid;
-        workItems[item.Id] = copy;
+        workItems[guid] = copy;
         return guid;
     }
 
-    public WorkItem Get(Guid guid)
-    {
-        return workItems[guid];
-    }
+    public WorkItem Get(Guid guid) => workItems[guid];
 
-    public WorkItem[] GetAll()
-    {
-        return workItems.Values.ToArray();
-    }
+    public WorkItem[] GetAll() => workItems.Values.ToArray();
 
-    public bool Remove(WorkItem item)
-    {
-        return workItems.Remove(item.Id);
-    }
+    public bool Remove(WorkItem item) => workItems.Remove(item.Id);
 
     public bool Update(WorkItem item)
     {
